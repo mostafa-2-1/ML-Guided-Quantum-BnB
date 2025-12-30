@@ -608,14 +608,17 @@ def prune_tsp_instance(
     for u, v in pruned_edges:
         G.add_edge(u, v, weight=D[u][v])
 
-    G, reconnected = reconnect_graph_if_needed(G, D)
+    # 1️⃣ Initial reconnect
+    G, _ = reconnect_graph_if_needed(G, D)
+
+    # 2️⃣ Fix degrees (this may create new isolated structures)
     repair_low_degree_nodes(G, D, min_deg=min_deg)
 
-    feasible = (
-        nn_multistart_feasible(G, D, tries=15)
-        if n <= 55
-        else nx.is_connected(G)
-    )
+    # 3️⃣ FINAL reconnect — THIS IS THE CRITICAL ONE
+    G, _ = reconnect_graph_if_needed(G, D)
+
+    feasible = nx.is_connected(G)
+
 
     opt_edges = {
         tuple(sorted((opt_tour[i], opt_tour[(i + 1) % len(opt_tour)])))
@@ -625,6 +628,8 @@ def prune_tsp_instance(
 
     os.makedirs(out_dir, exist_ok=True)
     name = os.path.splitext(os.path.basename(tsp_path))[0]
+    assert nx.is_connected(G), f"Disconnected graph after pruning: {tsp_path}"
+
 
     nx.write_edgelist(G, f"{out_dir}/{name}.edgelist", data=["weight"])
 
@@ -724,10 +729,92 @@ def process_folders(
                         out_dir,
                     )
 
+def process_graphs_chosen(
+    graphs_chosen_dir,
+    model_path,
+    cascade_path,
+    cascade_thr_path,
+    factor_json_path,
+):
+    with open(cascade_thr_path) as f:
+        base_threshold = json.load(f)["threshold"]
+
+    with open(factor_json_path) as f:
+        factor_raw = json.load(f)
+
+    factor_map = {
+        k: select_factors_for_range(v)
+        for k, v in factor_raw.items()
+    }
+
+    cascade = joblib.load(cascade_path)
+    gnn = None
+
+    for fname in os.listdir(graphs_chosen_dir):
+        if not fname.endswith(".tsp"):
+            continue
+
+        tsp = os.path.join(graphs_chosen_dir, fname)
+        opt_candidates = [
+            os.path.join("synthetic_tsplib", os.path.basename(fname).replace(".tsp",".opt.tour")),
+            os.path.join("tsplib_data", os.path.basename(fname).replace(".tsp",".opt.tour"))
+        ]
+
+        opt = next((f for f in opt_candidates if os.path.exists(f)), None)
+        if opt is None:
+            print(f"[Skip] No opt tour for {fname}")
+            continue
+
+        tsp_data = parse_tsp(tsp)
+        coords = tsp_data["coords"]
+        n = coords.shape[0]
+
+        # pick correct factor range
+        selected_factors = None
+        for k, factors in factor_map.items():
+            a, b = map(int, k.split("-"))
+            if a <= n <= b:
+                selected_factors = factors
+                break
+
+        if selected_factors is None:
+            print(f"[Skip] No factor range for n={n} ({fname})")
+            continue
+
+        # lazy-load GNN ONCE
+        if gnn is None:
+            edges, D = build_candidate_edges(coords)
+            node_feat, _, edge_attr = compute_node_edge_features(coords, edges, D)
+            gnn = EdgeGNN(node_feat.shape[1], edge_attr.shape[1]).to(device)
+            gnn.load_state_dict(torch.load(model_path, map_location=device))
+            gnn.eval()
+
+        for factor in selected_factors:
+            out_dir = f"savedGraphs/factor_{factor:.5f}"
+            print(f"[Prune] {fname} | n={n} | factor={factor:.5f}")
+
+            prune_tsp_instance(
+                tsp,
+                opt,
+                gnn,
+                cascade,
+                base_threshold,
+                factor,
+                out_dir,
+            )
+
+
 
 def main():
-    process_folders(
-        folders=["tsplib_data", "synthetic_tsplib"],
+    # process_folders(
+    #     folders=["tsplib_data", "synthetic_tsplib"],
+    #     model_path="results/seed_42/best_model_threshold.pt",
+    #     cascade_path="results/seed_42/cascade_stage1.pkl",
+    #     cascade_thr_path="results/seed_42/cascade_stage1_thr.json",
+    #     factor_json_path="results/full_factor_metrics.json",
+    # )
+    process_graphs_chosen(
+        graphs_chosen_dir="graphs_chosen",
         model_path="results/seed_42/best_model_threshold.pt",
         cascade_path="results/seed_42/cascade_stage1.pkl",
         cascade_thr_path="results/seed_42/cascade_stage1_thr.json",
