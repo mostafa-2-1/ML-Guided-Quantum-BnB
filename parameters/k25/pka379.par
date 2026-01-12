@@ -1,0 +1,6 @@
+PROBLEM_FILE = C:\Users\user\Desktop\SeniorProject_step1\pruned_graphs_k\k25\pka379\pka379_sparse.tsp
+OUTPUT_TOUR_FILE = C:\Users\user\Desktop\SeniorProject_step1\lkh_results\k25\pka379.sol
+RUNS = 1
+MOVE_TYPE = 5
+PRECISION = 1
+TIME_LIMIT = 3600

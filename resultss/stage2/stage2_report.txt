@@ -1,0 +1,22 @@
+============================================================
+STAGE2 RESULTS
+============================================================
+
+Configuration:
+  k value: 5
+  Total instances: 305
+
+Recall Metrics:
+  Mean Recall:    95.81%
+  Min Recall:     85.71%
+  Max Recall:     100.00%
+  Std Recall:     2.41%
+
+Success Metrics:
+  Success Rate:   6.23%
+  Successful:     19/305
+  Failed:         286/305
+
+Sparsity Metrics:
+  Mean Sparsity:  51.24%
+  Mean Edges:     617.9

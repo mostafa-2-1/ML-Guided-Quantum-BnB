@@ -1,0 +1,37 @@
+NAME : bays29.2055.tour
+COMMENT : Length = 2055
+COMMENT : Found by LKH-3 [Keld Helsgaun] Sun Jan 11 02:04:27 2026
+TYPE : TOUR
+DIMENSION : 29
+TOUR_SECTION
+1
+8
+24
+27
+23
+7
+25
+11
+22
+17
+14
+18
+15
+4
+19
+16
+13
+10
+20
+21
+2
+29
+3
+26
+5
+9
+12
+6
+28
+-1
+EOF

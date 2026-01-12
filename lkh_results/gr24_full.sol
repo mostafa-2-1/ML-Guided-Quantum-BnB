@@ -1,0 +1,32 @@
+NAME : gr24.1272.tour
+COMMENT : Length = 1272
+COMMENT : Found by LKH-3 [Keld Helsgaun] Sun Jan 11 02:08:31 2026
+TYPE : TOUR
+DIMENSION : 24
+TOUR_SECTION
+1
+12
+4
+23
+9
+13
+14
+20
+2
+15
+19
+22
+18
+17
+10
+5
+21
+8
+24
+6
+7
+3
+11
+16
+-1
+EOF

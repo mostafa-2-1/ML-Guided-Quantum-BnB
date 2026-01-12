@@ -1,0 +1,6 @@
+PROBLEM_FILE = C:\Users\user\Desktop\SeniorProject_step1\graphss_chosen\rbx711.tsp
+OUTPUT_TOUR_FILE = C:\Users\user\Desktop\SeniorProject_step1\lkh_results\full\rbx711.sol
+RUNS = 1
+MOVE_TYPE = 5
+PRECISION = 1
+TIME_LIMIT = 3600

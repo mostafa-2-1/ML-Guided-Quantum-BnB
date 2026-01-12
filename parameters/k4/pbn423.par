@@ -1,0 +1,6 @@
+PROBLEM_FILE = C:\Users\user\Desktop\SeniorProject_step1\pruned_graphs_k\k4\pbn423\pbn423_sparse.tsp
+OUTPUT_TOUR_FILE = C:\Users\user\Desktop\SeniorProject_step1\lkh_results\k4\pbn423.sol
+RUNS = 1
+MOVE_TYPE = 5
+PRECISION = 1
+TIME_LIMIT = 3600

@@ -1,0 +1,122 @@
+[
+  {
+    "name": "rd100",
+    "n": 100,
+    "source": "tsplib_data"
+  },
+  {
+    "name": "berlin52",
+    "n": 52,
+    "source": "tsplib_data"
+  },
+  {
+    "name": "att48",
+    "n": 48,
+    "source": "tsplib_data"
+  },
+  {
+    "name": "fri26",
+    "n": 26,
+    "source": "tsplib_data"
+  },
+  {
+    "name": "eil101",
+    "n": 101,
+    "source": "tsplib_data"
+  },
+  {
+    "name": "pr76",
+    "n": 76,
+    "source": "tsplib_data"
+  },
+  {
+    "name": "brg180",
+    "n": 180,
+    "source": "tsplib_data"
+  },
+  {
+    "name": "ulysses16",
+    "n": 16,
+    "source": "tsplib_data"
+  },
+  {
+    "name": "bays29",
+    "n": 29,
+    "source": "tsplib_data"
+  },
+  {
+    "name": "gr202",
+    "n": 202,
+    "source": "tsplib_data"
+  },
+  {
+    "name": "ch150",
+    "n": 150,
+    "source": "tsplib_data"
+  },
+  {
+    "name": "tsp225",
+    "n": 225,
+    "source": "tsplib_data"
+  },
+  {
+    "name": "gr666",
+    "n": 666,
+    "source": "tsplib_data"
+  },
+  {
+    "name": "bayg29",
+    "n": 29,
+    "source": "tsplib_data"
+  },
+  {
+    "name": "lin105",
+    "n": 105,
+    "source": "tsplib_data"
+  },
+  {
+    "name": "kroC100",
+    "n": 100,
+    "source": "tsplib_data"
+  },
+  {
+    "name": "gr48",
+    "n": 48,
+    "source": "tsplib_data"
+  },
+  {
+    "name": "pa561",
+    "n": 561,
+    "source": "tsplib_data"
+  },
+  {
+    "name": "gr24",
+    "n": 24,
+    "source": "tsplib_data"
+  },
+  {
+    "name": "gr96",
+    "n": 96,
+    "source": "tsplib_data"
+  },
+  {
+    "name": "ulysses22",
+    "n": 22,
+    "source": "tsplib_data"
+  },
+  {
+    "name": "pcb442",
+    "n": 442,
+    "source": "tsplib_data"
+  },
+  {
+    "name": "ch130",
+    "n": 130,
+    "source": "tsplib_data"
+  },
+  {
+    "name": "kroD100",
+    "n": 100,
+    "source": "tsplib_data"
+  }
+]

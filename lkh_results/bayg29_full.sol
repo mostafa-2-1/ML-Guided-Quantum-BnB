@@ -1,0 +1,37 @@
+NAME : bayg29.1610.tour
+COMMENT : Length = 1610
+COMMENT : Found by LKH-3 [Keld Helsgaun] Sun Jan 11 02:04:23 2026
+TYPE : TOUR
+DIMENSION : 29
+TOUR_SECTION
+1
+24
+13
+16
+27
+8
+23
+7
+25
+19
+11
+22
+17
+14
+18
+15
+4
+10
+20
+2
+21
+5
+29
+3
+26
+9
+12
+6
+28
+-1
+EOF
