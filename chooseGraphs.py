@@ -3,11 +3,12 @@ import random
 import shutil
 from newTrain import parse_tsp
 
-SOURCE_FOLDERS = ["tsplib_data", "synthetic_tsplib"]
-OUT_DIR = "graphs_chosen"
-MIN_N = 10
-MAX_N = 25
-NUM_GRAPHS = 60
+#SOURCE_FOLDERS = ["tsplib_data", "synthetic_tsplib"]
+SOURCE_FOLDERS = ["tsplib_data"]
+OUT_DIR = "graphss_chosen"
+MIN_N = 1
+MAX_N = 1500
+NUM_GRAPHS = 24
 SEED = 42
 
 random.seed(SEED)
