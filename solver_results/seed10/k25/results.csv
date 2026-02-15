@@ -1,0 +1,15 @@
+instance,n,cost,gap_abs,gap_rel_percent,tour_found,success
+bcl380,380,1621.0,0.0,0.0,True,True
+dkg813,813,3199.0,0.0,0.0,True,True
+gr666,666,302212.0,7854.0,2.6681795636605767,True,False
+lim963,963,2789.0,0.0,0.0,True,True
+pa561,561,3000.0,237.0,8.577633007600435,True,False
+pbk411,411,1343.0,0.0,0.0,True,True
+pbl395,395,1281.0,0.0,0.0,True,True
+pbm436,436,1443.0,0.0,0.0,True,True
+pbn423,423,1365.0,0.0,0.0,True,True
+pcb442,442,50778.0,0.0,0.0,True,True
+pka379,379,1542.0,210.0,15.765765765765764,True,False
+rbu737,737,3314.0,0.0,0.0,True,True
+rbx711,711,3117.0,2.0,0.0642054574638844,True,True
+xql662,662,2513.0,0.0,0.0,True,True

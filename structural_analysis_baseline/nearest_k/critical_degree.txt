@@ -1,0 +1,2 @@
+Critical avg degree (x0): 16.54288930778588
+Transition sharpness (beta): 0.09649414110279052
