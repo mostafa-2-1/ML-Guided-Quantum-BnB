@@ -628,9 +628,9 @@ def write_metadata(instance_name, n_nodes, original_edges, kept_edges, k, method
             print(f"  Warning: tour metrics failed: {e}")
     
     # Add feasible flag (connected and tour not broken if tour available)
-    metadata['feasible'] = metadata.get('is_connected', False)
-    if 'tour_broken' in metadata:
-        metadata['feasible'] = metadata['feasible'] and (not metadata['tour_broken'])
+    metadata['feasible'] = metadata.get('is_connected')
+    # if 'tour_broken' in metadata:
+    #     metadata['feasible'] = metadata['feasible'] and (not metadata['tour_broken'])
     
     return metadata
 

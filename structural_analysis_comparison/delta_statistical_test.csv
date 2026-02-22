@@ -1,0 +1,9 @@
+statistic,value
+delta_point_estimate,7.263395928254818
+delta_boot_mean,7.194222217234016
+delta_boot_std,1.749418313407176
+delta_ci_low,3.5313985691979823
+delta_ci_high,10.407563167949764
+p_value_approx,0.001
+significant_at_005,True
+n_valid_bootstraps,1000

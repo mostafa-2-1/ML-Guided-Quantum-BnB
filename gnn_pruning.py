@@ -927,7 +927,7 @@ def save_sparse_tsp(D, kept_edges, edge_mapping, n_nodes, output_path, name="pru
         f.write("EOF\n")
 
 def save_adjacency_csv(n_nodes, kept_edges, edge_mapping, D, output_path):
-    """Save as sparse adjacency matrix."""
+    """Save as sparse adjacency matrix.."""
     rows, cols, weights = [], [], []
     
     written = set()
